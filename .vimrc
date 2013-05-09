@@ -1,4 +1,4 @@
-""""" Boris's vimrc
+" Boris's vimrc
 set number              " line numbers
 set ruler               " current posizion in corner
 set showcmd             " show the command you are typing
