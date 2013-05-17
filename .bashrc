@@ -110,3 +110,7 @@ fi
 
 # default editor: vim
 EDITOR=vim
+
+# tmux autostart/autoattach if needed
+[ $TERM == 'screen-256color' ] || tmux -2 attach -t wrk
+[ $? -ne 0 ] && [ -f ~/scripts/tmux.init.sh ] && . ~/scripts/tmux.init.sh

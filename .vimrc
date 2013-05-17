@@ -3,10 +3,12 @@ set number              " line numbers
 set ruler               " current posizion in corner
 set showcmd             " show the command you are typing
 syntax on               " syntax highlight enabled
+set modeline            " allow modeline ( /* vim: set sw=2: */ )
 "autocmd WinLeave * set nocursorcolumn   " set current column highlight
 "autocmd WinEnter * set cursorcolumn     " only in current buffer
 "set cursorcolumn
 set colorcolumn=80
+set cursorline
 "set list                " end of line and trailing spaces visibility
 set listchars=trail:¤,tab:>-,eol:.
 " if terminal allow funny coloring, use them all!
