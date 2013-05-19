@@ -28,7 +28,7 @@ set softtabstop=4
 set expandtab           " use spaces, not tabs
 set splitbelow          " split in a logic way
 set splitright          " split in a logic way
-set mouse=a             " enable mouse
+set mouse=""            " disable mouse
 
 set autoindent          " automatic indentation
 set exrc                " enable local .exrc file
@@ -40,11 +40,16 @@ set wildmenu                " autocomplete suggestion menu
 set wildmode=longest:full   " autocomplete term style
 
 " mapping
+cmap è  
+imap è  
+map  è  
+vmap è  
+
 let mapleader = "é"
 
 cmap <Leader><Leader>  
 imap <Leader><Leader>  
-map <Leader><Leader> 
+map  <Leader><Leader>  
 vmap <Leader><Leader>  
 
 map <Leader>O Oj
