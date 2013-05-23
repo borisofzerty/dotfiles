@@ -1,16 +1,19 @@
-" Boris's vimrc
+"" Grafical - no impact "
+"""""""""""""""""""""""""
 set number              " line numbers
 set ruler               " current posizion in corner
 set showcmd             " show the command you are typing
-syntax on               " syntax highlight enabled
-set modeline            " allow modeline ( /* vim: set sw=2: */ )
-"autocmd WinLeave * set nocursorcolumn   " set current column highlight
-"autocmd WinEnter * set cursorcolumn     " only in current buffer
-"set cursorcolumn
-set colorcolumn=80
-set cursorline
-"set list                " end of line and trailing spaces visibility
+set colorcolumn=80      " highlight 80th col
+set nolist              " end of line and trailing spaces visibility
 set listchars=trail:¤,tab:>-,eol:.
+syntax on               " syntax highlight enabled
+
+set splitbelow          " split in a logic way
+set splitright          " split in a logic way
+
+"" Grafical - affecting vim "
+"""""""""""""""""""""""""""""
+set modeline            " allow modeline ( /* vim: set sw=2: */ )
 " if terminal allow funny coloring, use them all!
 if $TERM == "xterm" || $TERM == "screen-256color"
     set t_Co=256
@@ -19,18 +22,28 @@ else
     colorscheme desert
 endif
 
-"set hlsearch            " highlight searchs
 set ignorecase          " search is not case sensitive
+set nohlsearch          " highlight searchs
 
+" thanks to Ton Kersten https://github.com/tonk/dotfiles/blob/master/vim/vimrc
+set laststatus=2        " statusline ALWAYS visible
+set statusline=
+set statusline+=%f\                             " filename (basename)
+set statusline+=%h%m%r%w                        " status flags
+set statusline+=\[%{strlen(&ft)+2?&ft:'none'}]  " file type
+
+
+"" Tabs "
+"""""""""
 set tabstop=4           " 4 spaces for a tab
 set shiftwidth=4
 set softtabstop=4
 set expandtab           " use spaces, not tabs
-set splitbelow          " split in a logic way
-set splitright          " split in a logic way
-set mouse=""            " disable mouse
-
 set autoindent          " automatic indentation
+
+"" Other "
+""""""""""
+set mouse=""            " disable mouse
 set exrc                " enable local .exrc file
 set noswapfile          " no .%.swp
 au BufWritePre * %s/\s\+$//e    "kill trailing spaces at save
@@ -39,7 +52,8 @@ set sessionoptions=blank,buffers,curdir,help,options,resize,winsize
 set wildmenu                " autocomplete suggestion menu
 set wildmode=longest:full   " autocomplete term style
 
-" mapping
+"" mapping "
+""""""""""""
 cmap è  
 imap è  
 map  è  
@@ -81,13 +95,15 @@ imap <Leader>r :registers
 imap <Leader>i #include
 imap <Leader>d #define
 
-"filtype dependent commands
+"" filtype dependent commands "
+"""""""""""""""""""""""""""""""
 "see more on http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
 filetype on
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab  "for makefiles, go with tabs
 autocmd FileType c setlocal ts=8 sts=8 sw=8 noexpandtab  "for c, go with tabs
 autocmd FileType h setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
-autocmd FileType man setlocal nolist colorcolumn=0 "manpages, yay
+autocmd FileType c++ setlocal ts=8 sts=8 sw=8 noexpandtab  "for c++, go with tabs
+autocmd FileType man setlocal cursorline nolist colorcolumn=0 "manpages, yay
 "autocmd FileType python source ~/.vim/python/mystuff.vim
 
 "" plugins
