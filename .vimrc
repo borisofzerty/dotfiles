@@ -27,10 +27,10 @@ set nohlsearch          " highlight searchs
 
 " thanks to Ton Kersten https://github.com/tonk/dotfiles/blob/master/vim/vimrc
 set laststatus=2        " statusline ALWAYS visible
-set statusline=
-set statusline+=%f\                             " filename (basename)
-set statusline+=%h%m%r%w                        " status flags
-set statusline+=\[%{strlen(&ft)+2?&ft:'none'}]  " file type
+"set statusline=
+"set statusline+=%f\                             " filename (basename)
+"set statusline+=%h%m%r%w                        " status flags
+"set statusline+=\[%{strlen(&ft)+2?&ft:'none'}]  " file type
 
 
 "" Tabs "
@@ -54,44 +54,47 @@ set wildmode=longest:full   " autocomplete term style
 
 "" mapping "
 """"""""""""
-cmap è  
-imap è  
-map  è  
-vmap è  
+"allow link follow with enter
+nmap <Enter> <C-]>
+
+cmap è  <Esc><Esc>
+imap è  <Esc><Esc>
+map  è  <Esc><Esc>
+vmap è  <Esc><Esc>
 
 let mapleader = "é"
 
-cmap <Leader><Leader>  
-imap <Leader><Leader>  
-map  <Leader><Leader>  
-vmap <Leader><Leader>  
+cmap <Leader><Leader>  <Esc><Esc>
+imap <Leader><Leader>  <Esc><Esc>
+map  <Leader><Leader>  <Esc><Esc>
+vmap <Leader><Leader>  <Esc><Esc>
 
-map <Leader>O Oj
-map <Leader>o ok
-map <Leader>h :set hlsearch!
-map <Leader>l :set list!
-map <Leader>w :w
-map <Leader>W :wall
-map <Leader>. :
-map <Leader>r :registers
-map <Leader>m :marks
-map <Leader>j :jumps
+map <Leader>O O<Esc>j
+map <Leader>o o<Esc>k
+map <Leader>h :set hlsearch!<Esc>
+map <Leader>l :set list!<Esc>
+map <Leader>w :w<Esc>
+map <Leader>W :wall<Esc>
+map <Leader>. :<Esc>
+map <Leader>r :registers<Esc>
+map <Leader>m :marks<Esc>
+map <Leader>j :jumps<Esc>
 " window resize: leader, [shift] + arrows
-map <leader>OC :vertical resize +5
-map <leader>OD :vertical resize -5
-map <leader>[1;2C :vertical resize +1
-map <leader>[1;2D :vertical resize -1
-map <leader>OA :resize +5
-map <leader>OB :resize -5
-map <leader>[1;2A :resize +1
-map <leader>[1;2B :resize -1
+map <leader><Esc>OC :vertical resize +5<Esc>
+map <leader><Esc>OD :vertical resize -5<Esc>
+map <leader><Esc>[1;2C :vertical resize +1<Esc>
+map <leader><Esc>[1;2D :vertical resize -1<Esc>
+map <leader><Esc>OA :resize +5<Esc>
+map <leader><Esc>OB :resize -5<Esc>
+map <leader><Esc>[1;2A :resize +1<Esc>
+map <leader><Esc>[1;2B :resize -1<Esc>
 
-vmap <Leader>c :s,^,//,
-vmap <Leader>C :s,^//,,
+vmap <Leader>c :s,^,//,<Esc>
+vmap <Leader>C :s,^//,,<Esc>
 vmap <Leader>l <gv
 vmap <Leader>à >gv
 
-imap <Leader>r :registers
+imap <Leader>r <C-o>:registers<Esc>
 imap <Leader>i #include
 imap <Leader>d #define
 
