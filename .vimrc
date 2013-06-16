@@ -3,7 +3,7 @@
 set number              " line numbers
 set ruler               " current posizion in corner
 set showcmd             " show the command you are typing
-set colorcolumn=80      " highlight 80th col
+set colorcolumn=81      " highlight 80th col
 set nolist              " end of line and trailing spaces visibility
 set listchars=trail:¤,tab:>-,eol:.
 syntax on               " syntax highlight enabled
@@ -50,12 +50,12 @@ au BufWritePre * %s/\s\+$//e    "kill trailing spaces at save
 " sessions, use :mksession to create new one
 set sessionoptions=blank,buffers,curdir,help,options,resize,winsize
 set wildmenu                " autocomplete suggestion menu
-set wildmode=longest:full   " autocomplete term style
+set wildmode=longest,list   " autocomplete term style
 
 "" mapping "
 """"""""""""
 "allow link follow with enter
-nmap <Enter> <C-]>
+nmap £ <C-]>
 
 cmap è  <Esc><Esc>
 imap è  <Esc><Esc>
@@ -79,6 +79,7 @@ map <Leader>. :<Esc>
 map <Leader>r :registers<Esc>
 map <Leader>m :marks<Esc>
 map <Leader>j :jumps<Esc>
+map <Leader>t :tags<Esc>
 " window resize: leader, [shift] + arrows
 map <leader><Esc>OC :vertical resize +5<Esc>
 map <leader><Esc>OD :vertical resize -5<Esc>
@@ -103,13 +104,19 @@ imap <Leader>d #define
 "see more on http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
 filetype on
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab  "for makefiles, go with tabs
-autocmd FileType c setlocal ts=8 sts=8 sw=8 noexpandtab  "for c, go with tabs
+autocmd FileType c setlocal ts=8 sts=8 sw=8 noexpandtab
+autocmd FileType c setlocal foldmethod=syntax tags+=~/linux/lib/tags  "for c, go with tabs
+autocmd FileType c :% foldopen!
 autocmd FileType h setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
-autocmd FileType c++ setlocal ts=8 sts=8 sw=8 noexpandtab  "for c++, go with tabs
 autocmd FileType man setlocal cursorline nolist colorcolumn=0 "manpages, yay
+autocmd FileType man map q :q!<Esc>
+autocmd FileType help setlocal cursorline nolist colorcolumn=0 "help, yay
 "autocmd FileType python source ~/.vim/python/mystuff.vim
 
-"" plugins
+""_________"
+"" plugins "
+""""""""""""
+
 " pathogen
 execute pathogen#infect()
 

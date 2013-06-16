@@ -78,6 +78,7 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias mm='~/scripts/manmaker.sh'
+alias dfc='df -h | cowsay -bn'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
