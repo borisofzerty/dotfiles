@@ -48,7 +48,7 @@ set exrc                " enable local .exrc file
 set noswapfile          " no .%.swp
 au BufWritePre * %s/\s\+$//e    "kill trailing spaces at save
 " sessions, use :mksession to create new one
-set sessionoptions=blank,buffers,curdir,help,options,resize,winsize
+set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages
 set wildmenu                " autocomplete suggestion menu
 set wildmode=longest,list   " autocomplete term style
 
@@ -98,22 +98,29 @@ vmap <Leader>à >gv
 imap <Leader>r <C-o>:registers<Esc>
 imap <Leader>i #include
 imap <Leader>d #define
+imap <Leader>w <esc>:w<Esc>
+imap <Leader>W <esc>:wall<Esc>
 
 "" filtype dependent commands "
 """""""""""""""""""""""""""""""
 "see more on http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
 filetype on
+autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab  "for makefiles, go with tabs
+autocmd FileType help setlocal ts=8 sts=8 sw=8 noexpandtab
 autocmd FileType c setlocal ts=8 sts=8 sw=8 noexpandtab
 autocmd FileType c setlocal foldmethod=syntax tags+=~/linux/lib/tags  "for c, go with tabs
 autocmd FileType c :% foldopen!
 autocmd FileType h setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
+autocmd FileType cpp setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
 autocmd FileType man setlocal cursorline nolist colorcolumn=0 "manpages, yay
 autocmd FileType man map q :q!<Esc>
 autocmd FileType help setlocal cursorline nolist colorcolumn=0 "help, yay
+autocmd FileType text setlocal cursorline nolist colorcolumn=0
+autocmd FileType text map <Down> :/^[*=-]\+$/-1 :normal zt jj0<Esc>
+autocmd FileType text map <Up> :?^[*=-]\+$?-1 :normal zt 0<Esc>
 "autocmd FileType python source ~/.vim/python/mystuff.vim
 
-""_________"
 "" plugins "
 """"""""""""
 
