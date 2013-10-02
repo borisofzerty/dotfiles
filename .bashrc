@@ -54,7 +54,10 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;30m\]\u\[\033[00m\] \[\033[01;34m\]\w \[\033[00;37m\]\$\[\033[00m\] '
+    #PS1="\[$(tput bold)\]\[$(tput setaf 4)\]\u \[$(tput setaf 5)\]\w \[$(tput setaf 4)\][\j] \t\n\[$(tput setaf 1)\]\! \$ \[$(tput sgr0)\]"
+    PS1="\[$(tput bold)\]\[$(tput setaf 4)\]\u \[$(tput setaf 5)\]\w \[$(tput setaf 4)\][\j]\[$(tput setaf 1)\] \! \$ \[$(tput sgr0)\]"
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;30m\]\u\[\033[00m\] \[\033[01;34m\]\w \[\033[00;37m\]\$\[\033[00m\] '
+    PS4='\[\033[00;32m\[==> \[\033[00m\['
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w \$\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -74,7 +77,7 @@ esac
 
 # some more ls aliases
 alias ee='exit'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
 alias mm='~/scripts/manmaker.sh'
@@ -84,11 +87,7 @@ alias hgrep='history | grep'
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias l='ls --color=auto'
     alias ls='ls --color=auto'
-    alias ll='ls -la --color=auto'
-
-    alias hgrep='history | grep --color=auto'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
