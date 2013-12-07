@@ -6,6 +6,7 @@ set showcmd             " show the command you are typing
 set colorcolumn=81      " highlight 80th col
 set nolist              " end of line and trailing spaces visibility
 set listchars=trail:¤,tab:>-,eol:.
+set scrolloff=3         " keep cursor distant from top/pottom while scrolling
 syntax on               " syntax highlight enabled
 
 set splitbelow          " split in a logic way
@@ -130,5 +131,5 @@ execute pathogen#infect()
 "filetype off
 "call pathogen#infect()
 "call pathogen#helptags()
-"filetype plugin indent on
-"syntax on
+filetype plugin indent on
+syntax on
