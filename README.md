@@ -1,9 +1,12 @@
 dotfiles
 ========
+Not really a readme file
+    1. atop
+    2. bobby
 
-various configuration files
-hard links or copy/paste?
-...
-+
-+
-+
+TODO
+----
+stuff to do
+    * makefike
+    * markdown training
+    * more stuff
