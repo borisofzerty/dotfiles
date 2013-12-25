@@ -6,6 +6,7 @@ set showcmd             " show the command you are typing
 set colorcolumn=81      " highlight 80th col
 set nolist              " end of line and trailing spaces visibility
 set listchars=trail:¤,tab:>-,eol:.
+set scrolloff=3         " keep cursor distant from top/pottom while scrolling
 syntax on               " syntax highlight enabled
 
 set splitbelow          " split in a logic way
@@ -73,6 +74,7 @@ map <Leader>O O<Esc>j
 map <Leader>o o<Esc>k
 map <Leader>h :set hlsearch!<Esc>
 map <Leader>l :set list!<Esc>
+map <Leader>p :set paste!<Esc>
 map <Leader>w :w<Esc>
 map <Leader>W :wall<Esc>
 map <Leader>. :<Esc>
@@ -100,6 +102,8 @@ imap <Leader>i #include
 imap <Leader>d #define
 imap <Leader>w <esc>:w<Esc>
 imap <Leader>W <esc>:wall<Esc>
+
+map <Leader>n :NERDTreeToggle<Esc>
 
 "" filtype dependent commands "
 """""""""""""""""""""""""""""""
@@ -130,5 +134,5 @@ execute pathogen#infect()
 "filetype off
 "call pathogen#infect()
 "call pathogen#helptags()
-"filetype plugin indent on
-"syntax on
+filetype plugin indent on
+syntax on
