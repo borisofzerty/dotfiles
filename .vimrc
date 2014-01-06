@@ -63,6 +63,20 @@ imap è  <Esc><Esc>
 map  è  <Esc><Esc>
 vmap è  <Esc><Esc>
 
+"tabs navigation control-free-firefox-like
+map <S-tab> :tabprevious<CR>
+map <tab>   :tabnext<CR>
+map 1<tab>  1gt<CR>
+map 2<tab>  2gt<CR>
+map 3<tab>  3gt<CR>
+map 4<tab>  4gt<CR>
+map 5<tab>  5gt<CR>
+map 6<tab>  6gt<CR>
+map 7<tab>  7gt<CR>
+map 8<tab>  8gt<CR>
+map 9<tab>  9gt<CR>
+map <C-t>   :tabnew<CR>
+
 let mapleader = "é"
 
 cmap <Leader><Leader>  <Esc><Esc>
@@ -92,8 +106,8 @@ map <leader><Esc>OB :resize -5<Esc>
 map <leader><Esc>[1;2A :resize +1<Esc>
 map <leader><Esc>[1;2B :resize -1<Esc>
 
-vmap <Leader>c :s,^,//,<Esc>
-vmap <Leader>C :s,^//,,<Esc>
+vmap <Leader>c :s,^,#,<Esc>
+vmap <Leader>C :s,^#,,<Esc>
 vmap <Leader>l <gv
 vmap <Leader>à >gv
 
