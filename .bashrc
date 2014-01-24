@@ -55,7 +55,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     #PS1="\[$(tput bold)\]\[$(tput setaf 4)\]\u \[$(tput setaf 5)\]\w \[$(tput setaf 4)\][\j] \t\n\[$(tput setaf 1)\]\! \$ \[$(tput sgr0)\]"
-    PS1="\[$(tput bold)\]\[$(tput setaf 4)\]\u \[$(tput setaf 5)\]\w \[$(tput setaf 4)\][\j]\[$(tput setaf 1)\] \! \$ \[$(tput sgr0)\]"
+	PS1="\[$(tput bold)\]\[$(tput setaf 4)\]\w\[$(tput setaf 1)\] \\$ \[$(tput sgr0)\]"
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;30m\]\u\[\033[00m\] \[\033[01;34m\]\w \[\033[00;37m\]\$\[\033[00m\] '
     PS4='\[\033[00;32m\[==> \[\033[00m\['
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w \$\[\033[00m\] '
@@ -77,7 +77,7 @@ esac
 
 # some more ls aliases
 alias ee='exit'
-alias ll='ls -lh'
+alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls -CF'
 alias mm='~/scripts/manmaker.sh'
@@ -100,6 +100,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+#rvm
+
 # default editor: vim
 EDITOR=vim
 
@@ -109,3 +111,5 @@ DISPLAY=localhost:10.0
 # tmux autostart/autoattach if needed
 [ $TERM == 'screen-256color' ] || tmux -2 attach -t wrk
 [ $? -ne 0 ] && [ -f ~/scripts/tmux.init.sh ] && . ~/scripts/tmux.init.sh
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

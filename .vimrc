@@ -47,7 +47,7 @@ set autoindent          " automatic indentation
 set mouse=""            " disable mouse
 set exrc                " enable local .exrc file
 set noswapfile          " no .%.swp
-au BufWritePre * %s/\s\+$//e    "kill trailing spaces at save
+" au BufWritePre * %s/\s\+$//e    "kill trailing spaces at save
 " sessions, use :mksession to create new one
 set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages
 set wildmenu                " autocomplete suggestion menu
@@ -90,12 +90,12 @@ map <Leader>h :set hlsearch!<Esc>
 map <Leader>l :set list!<Esc>
 map <Leader>p :set paste!<Esc>
 map <Leader>w :w<Esc>
-map <Leader>W :wall<Esc>
 map <Leader>. :<Esc>
 map <Leader>r :registers<Esc>
 map <Leader>m :marks<Esc>
 map <Leader>j :jumps<Esc>
 map <Leader>t :tags<Esc>
+map <Leader>W :%s/\s\+$//e<CR>:w<CR>
 " window resize: leader, [shift] + arrows
 map <leader><Esc>OC :vertical resize +5<Esc>
 map <leader><Esc>OD :vertical resize -5<Esc>
@@ -115,8 +115,9 @@ imap <Leader>r <C-o>:registers<Esc>
 imap <Leader>i #include
 imap <Leader>d #define
 imap <Leader>w <esc>:w<Esc>
-imap <Leader>W <esc>:wall<Esc>
 
+" TODO enable those only if plugin is installed
+map <Leader>, :TabooRename
 map <Leader>n :NERDTreeToggle<Esc>
 
 "" filtype dependent commands "
@@ -124,6 +125,7 @@ map <Leader>n :NERDTreeToggle<Esc>
 "see more on http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
 filetype on
 autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab  "for makefiles, go with tabs
 autocmd FileType help setlocal ts=8 sts=8 sw=8 noexpandtab
 autocmd FileType c setlocal ts=8 sts=8 sw=8 noexpandtab
