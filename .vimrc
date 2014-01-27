@@ -58,11 +58,6 @@ set wildmode=longest,list   " autocomplete term style
 "allow link follow with enter
 nmap £ <C-]>
 
-cmap è  <Esc><Esc>
-imap è  <Esc><Esc>
-map  è  <Esc><Esc>
-vmap è  <Esc><Esc>
-
 "tabs navigation control-free-firefox-like
 map <S-tab> :tabprevious<CR>
 map <tab>   :tabnext<CR>
@@ -77,7 +72,23 @@ map 8<tab>  8gt<CR>
 map 9<tab>  9gt<CR>
 map <C-t>   :tabnew<CR>
 
+" make Y behave like other capitals
+noremap Y y$
+
+" indent lines
+nnoremap <left> <<
+vnoremap <left> <gv
+nnoremap <right> >>
+vnoremap <right> >gv
+
+" no arrow movement
+inoremap <left> <nop>
+inoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+
 let mapleader = "é"
+let maplocalleader = "à"
 
 cmap <Leader><Leader>  <Esc><Esc>
 imap <Leader><Leader>  <Esc><Esc>
@@ -90,13 +101,13 @@ map <Leader>h :set hlsearch!<Esc>
 map <Leader>l :set list!<Esc>
 map <Leader>p :set paste!<Esc>
 map <Leader>w :w<Esc>
-map <Leader>. :<Esc>
 map <Leader>r :registers<Esc>
 map <Leader>m :marks<Esc>
 map <Leader>j :jumps<Esc>
 map <Leader>t :tags<Esc>
 map <Leader>W :%s/\s\+$//e<CR>:w<CR>
 " window resize: leader, [shift] + arrows
+" TODO real key plz
 map <leader><Esc>OC :vertical resize +5<Esc>
 map <leader><Esc>OD :vertical resize -5<Esc>
 map <leader><Esc>[1;2C :vertical resize +1<Esc>
@@ -106,10 +117,9 @@ map <leader><Esc>OB :resize -5<Esc>
 map <leader><Esc>[1;2A :resize +1<Esc>
 map <leader><Esc>[1;2B :resize -1<Esc>
 
+" TODO localleader ?
 vmap <Leader>c :s,^,#,<Esc>
 vmap <Leader>C :s,^#,,<Esc>
-vmap <Leader>l <gv
-vmap <Leader>à >gv
 
 imap <Leader>r <C-o>:registers<Esc>
 imap <Leader>i #include
@@ -143,6 +153,11 @@ autocmd FileType text map <Up> :?^[*=-]\+$?-1 :normal zt 0<Esc>
 
 "" plugins "
 """"""""""""
+
+" tslime.vim communication between vim and tmux
+"source ~/.vim/tslime.vim
+"nmap <C-c> :Tmux ls<CR>
+
 
 " pathogen
 execute pathogen#infect()

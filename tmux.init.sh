@@ -13,13 +13,12 @@ tmux resize-pane -t wrk:0.0 -D 12
 
 tmux new-window -t wrk -n edit
 tmux split-window -v -t wrk:1
-tmux resize-pane -t wrk:1.0 -D 12
+tmux split-window -h -t wrk:1.1
+tmux resize-pane -t wrk:1.0 -D 25
 
-#tmux new-window -t wrk -n rt
-#tmux split-window -h -t wrk:2
-#tmux split-window -v -t wrk:2.1
-#tmux resize-pane -t wrk:2.0 -L 10
-#
+tmux new-window -t wrk -n tests
+tmux split-window -h -t wrk:2
+
 #tmux new-window -t wrk -n C
 #tmux split-window -h -t wrk:3
 #tmux split-window -v -t wrk:3.1
