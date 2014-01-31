@@ -54,6 +54,7 @@ set wildmenu                " autocomplete suggestion menu
 set wildmode=longest,list   " autocomplete term style
 
 "" mapping "
+" TODO norecursive for all mappings
 """"""""""""
 "allow link follow with enter
 nmap £ <C-]>
@@ -93,6 +94,11 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 inoremap <up> <nop>
 inoremap <down> <nop>
+
+" exit form insert mode with move
+inoremap jj <Esc>j
+inoremap kk <Esc>k
+inoremap jk <Esc>
 
 let mapleader = "é"
 let maplocalleader = "à"
