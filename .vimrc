@@ -1,4 +1,4 @@
-"" Grafical - no impact "
+"" Graphical - no impact "
 """""""""""""""""""""""""
 set number              " line numbers
 set ruler               " current posizion in corner
@@ -51,6 +51,9 @@ set noswapfile          " no .%.swp
 set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages
 set wildmenu                " autocomplete suggestion menu
 set wildmode=longest,list   " autocomplete term style
+set nrformats+=alpha        " CTRL+A and CTRL+X works also for letters
+set virtualedit=block       " enable virtualedit for visual block mode
+set iskeyword-=_            " treat _ like whitespace and tabs
 
 "" mapping "
 """"""""""""
@@ -152,6 +155,10 @@ augroup filetype_ruby
     autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType ruby vnoremap <buffer> <LocalLeader>c :s,^,#,<Esc>
     autocmd FileType ruby vnoremap <buffer> <LocalLeader>C :s,^#,,<Esc>
+augroup END
+
+augroup filetype_eruby
+    autocmd FileType eruby setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 augroup filetype_vim
