@@ -25,13 +25,7 @@ endif
 
 set ignorecase          " search is not case sensitive
 set nohlsearch          " highlight searchs
-
-" thanks to Ton Kersten https://github.com/tonk/dotfiles/blob/master/vim/vimrc
 set laststatus=2        " statusline ALWAYS visible
-"set statusline=
-"set statusline+=%f\                             " filename (basename)
-"set statusline+=%h%m%r%w                        " status flags
-"set statusline+=\[%{strlen(&ft)+2?&ft:'none'}]  " file type
 
 
 "" Tabs "
@@ -44,9 +38,9 @@ set autoindent          " automatic indentation
 
 "" Other "
 """"""""""
-set mouse=""            " disable mouse
-set exrc                " enable local .exrc file
-set noswapfile          " no .%.swp
+set mouse=""                " disable mouse
+set exrc                    " enable local .exrc file
+set noswapfile              " no .%.swp
 " sessions, use :mksession to create new one
 set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages
 set wildmenu                " autocomplete suggestion menu
