@@ -1,16 +1,19 @@
-"" Graphical - no impact "
+"" Graphical - no impact "  
 """""""""""""""""""""""""
 set number              " line numbers
 set ruler               " current posizion in corner
 set showcmd             " show the command you are typing
 set colorcolumn=81      " highlight 80th col
 set nolist              " end of line and trailing spaces visibility
-set listchars=trail:¤,tab:>-,eol:.
+set listchars=trail:¤,tab:>-,eol:<
 set scrolloff=3         " keep cursor distant from top/pottom while scrolling
 syntax on               " syntax highlight enabled
 
 set splitbelow          " split in a logic way
 set splitright          " split in a logic way
+set laststatus=2        " statusline ALWAYS visible
+set statusline=%f\ %#Todo#%m%*\ [%{strlen(&fenc)?(&fenc.','):''}%{&ff}]%h%r%=[0x%B]\ %c,%l/%L\ %p%%
+
 
 "" Grafical - affecting vim "
 """""""""""""""""""""""""""""
@@ -25,7 +28,6 @@ endif
 
 set ignorecase          " search is not case sensitive
 set nohlsearch          " highlight searchs
-set laststatus=2        " statusline ALWAYS visible
 
 
 "" Tabs "
@@ -164,8 +166,8 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab  "for makefiles, go with tabs
 autocmd FileType help setlocal ts=8 sts=8 sw=8 noexpandtab
 autocmd FileType c    setlocal ts=8 sts=8 sw=8 noexpandtab
-autocmd FileType c    setlocal foldmethod=syntax tags+=~/linux/lib/tags  "for c, go with tabs
-autocmd FileType c    :% foldopen!
+"autocmd FileType c    setlocal foldmethod=syntax tags+=~/linux/lib/tags  "for c, go with tabs
+"autocmd FileType c    :% foldopen!
 autocmd FileType h    setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
 autocmd FileType cpp  setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
 autocmd FileType man  setlocal cursorline nolist colorcolumn=0 "manpages, yay
