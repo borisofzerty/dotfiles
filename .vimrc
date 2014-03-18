@@ -19,7 +19,7 @@ set statusline=%f\ %#Todo#%m%*\ [%{strlen(&fenc)?(&fenc.','):''}%{&ff}]%h%r%=[0x
 """""""""""""""""""""""""""""
 set modeline            " allow modeline ( /* vim: set sw=2: */ )
 " if terminal allow funny coloring, use them all!
-if $TERM == "xterm" || $TERM == "screen-256color"
+if $TERM == "xterm" || $TERM == "screen-256color" || $TERM == "xterm-256color"
     set t_Co=256
     colorscheme bubblegum
 else
