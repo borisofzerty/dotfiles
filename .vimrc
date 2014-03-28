@@ -55,6 +55,8 @@ set iskeyword-=_            " treat _ like whitespace and tabs
 """"""""""""
 "allow link follow with enter
 nnoremap £ <C-]>
+nnoremap <F5> :e<CR>
+nnoremap <leader>e :e<CR>
 
 "tabs navigation control-free-firefox-like
 noremap <S-tab> :tabprevious<CR>
@@ -170,7 +172,9 @@ autocmd FileType c    setlocal ts=8 sts=8 sw=8 noexpandtab
 "autocmd FileType c    :% foldopen!
 autocmd FileType h    setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
 autocmd FileType cpp  setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
+autocmd FileType man  %s/.//g | call setpos('.',[0,1,0,0])
 autocmd FileType man  setlocal cursorline nolist colorcolumn=0 "manpages, yay
+autocmd FileType man  noremap <buffer> <LocalLeader>f /^\s\+--\?
 autocmd FileType man  noremap q :q!<Esc>
 autocmd FileType help setlocal cursorline nolist colorcolumn=0 "help, yay
 autocmd FileType text setlocal cursorline nolist colorcolumn=0

@@ -81,9 +81,11 @@ alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls -CF'
 alias mm='~/scripts/manmaker.sh'
+alias tt='~/scripts/tmux.init.sh'
 alias dfc='df -h | cowsay -bn'
 alias hgrep='history | grep'
 
+export CLICOLOR=1
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -109,7 +111,13 @@ EDITOR=vim
 DISPLAY=localhost:10.0
 
 # tmux autostart/autoattach if needed
-[ $TERM == 'screen-256color' ] || tmux -2 attach -t wrk
-[ $? -ne 0 ] && [ -f ~/scripts/tmux.init.sh ] && . ~/scripts/tmux.init.sh
+#[ $TERM == 'screen-256color' ] || tmux -2 attach -t wrk
+#[ $? -ne 0 ] && [ -f ~/scripts/tmux.init.sh ] && . ~/scripts/tmux.init.sh
 
+export make='eval make 2>&1 | tee .log'
+export run='./a.out'
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+if [ $(uname -s) = 'Darwin' ]; then
+    source /Users/boris/.rvm/scripts/rvm
+    PATH=/usr/local/bin:$PATH # required by brew
+fi
