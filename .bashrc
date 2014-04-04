@@ -102,6 +102,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+if [ -f ~/.bash_local ] ; then
+    . ~/.bash_local 
+fi
+
 #rvm
 
 # default editor: vim

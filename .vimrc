@@ -5,7 +5,7 @@ set ruler               " current posizion in corner
 set showcmd             " show the command you are typing
 set colorcolumn=81      " highlight 80th col
 set nolist              " end of line and trailing spaces visibility
-set listchars=trail:¤,tab:>-,eol:<
+"set listchars=trail:¤,tab:>-,eol:
 set scrolloff=3         " keep cursor distant from top/pottom while scrolling
 syntax on               " syntax highlight enabled
 
