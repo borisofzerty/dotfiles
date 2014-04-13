@@ -5,7 +5,7 @@ set ruler               " current posizion in corner
 set showcmd             " show the command you are typing
 set colorcolumn=81      " highlight 80th col
 set nolist              " end of line and trailing spaces visibility
-"set listchars=trail:¤,tab:>-,eol:
+set listchars=trail:*,tab:>-,eol:$
 set scrolloff=3         " keep cursor distant from top/pottom while scrolling
 syntax on               " syntax highlight enabled
 
@@ -50,13 +50,13 @@ set wildmode=longest,list   " autocomplete term style
 set nrformats+=alpha        " CTRL+A and CTRL+X works also for letters
 set virtualedit=block       " enable virtualedit for visual block mode
 set iskeyword-=_            " treat _ like whitespace and tabs
+setlocal spelllang=en_us         " set lang for spellcheck
 
 "" mapping "
 """"""""""""
 "allow link follow with enter
 nnoremap £ <C-]>
 nnoremap <F5> :e<CR>
-nnoremap <leader>e :e<CR>
 
 "tabs navigation control-free-firefox-like
 noremap <S-tab> :tabprevious<CR>
@@ -109,27 +109,23 @@ inoremap <Leader><Leader>  <Esc><Esc>
 noremap  <Leader><Leader>  <Esc><Esc>
 vnoremap <Leader><Leader>  <Esc><Esc>
 
+nnoremap <leader>e :e<CR>
+
 noremap <Leader>O O<Esc>j
 noremap <Leader>o o<Esc>k
+
 noremap <Leader>h :set hlsearch!<Esc>
 noremap <Leader>l :set list!<Esc>
 noremap <Leader>p :set paste!<Esc>
-noremap <Leader>w :w<Esc>
+noremap <Leader>s :set spell!<Esc>
+
 noremap <Leader>r :registers<Esc>
 noremap <Leader>m :marks<Esc>
 noremap <Leader>j :jumps<Esc>
 noremap <Leader>t :tags<Esc>
+
+noremap <Leader>w :w<Esc>
 noremap <Leader>W :%s/\s\+$//e<CR>:w<CR>
-" window resize: leader, [shift] + arrows
-" TODO real key plz
-"noremap <leader><up> :vertical resize +5<Esc>
-"noremap <leader><Esc>OD :vertical resize -5<Esc>
-"noremap <leader><Esc>[1;2C :vertical resize +1<Esc>
-"noremap <leader><Esc>[1;2D :vertical resize -1<Esc>
-"noremap <leader><Esc>OA :resize +5<Esc>
-"noremap <leader><Esc>OB :resize -5<Esc>
-"noremap <leader><Esc>[1;2A :resize +1<Esc>
-"noremap <leader><Esc>[1;2B :resize -1<Esc>
 
 vnoremap <Leader>c :s,^,#,<Esc>
 vnoremap <Leader>C :s,^#,,<Esc>
