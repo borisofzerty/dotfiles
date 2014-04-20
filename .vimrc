@@ -51,6 +51,8 @@ set nrformats+=alpha        " CTRL+A and CTRL+X works also for letters
 set virtualedit=block       " enable virtualedit for visual block mode
 set iskeyword-=_            " treat _ like whitespace and tabs
 setlocal spelllang=en_us         " set lang for spellcheck
+set formatoptions-=o        " no autocomment new lines
+set formatoptions-=r        " no autocomment new lines
 
 "" mapping "
 """"""""""""
@@ -100,6 +102,12 @@ inoremap kk <Esc>k
 inoremap JJ <Esc>o
 inoremap KK <Esc>O
 inoremap jk <Esc>
+
+" readline movement in insert mode
+inoremap <C-a> <C-o>0
+inoremap <C-e> <C-o>$
+inoremap <C-f> <C-o>l
+inoremap <C-b> <C-o>h
 
 let mapleader = "é"
 let maplocalleader = "à"
