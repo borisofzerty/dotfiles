@@ -49,7 +49,7 @@ set wildmenu                " autocomplete suggestion menu
 set wildmode=longest,list   " autocomplete term style
 set nrformats+=alpha        " CTRL+A and CTRL+X works also for letters
 set virtualedit=block       " enable virtualedit for visual block mode
-set iskeyword-=_            " treat _ like whitespace and tabs
+"set iskeyword-=_            " treat _ like whitespace and tabs
 setlocal spelllang=en_us         " set lang for spellcheck
 set formatoptions-=o        " no autocomment new lines
 set formatoptions-=r        " no autocomment new lines
@@ -72,7 +72,7 @@ noremap 6<tab>  6gt<CR>
 noremap 7<tab>  7gt<CR>
 noremap 8<tab>  8gt<CR>
 noremap 9<tab>  9gt<CR>
-noremap <C-t>   :tabnew<CR>
+"noremap <C-t>   :tabnew<CR>
 
 " make Y behave like other capitals
 noremap Y y$
