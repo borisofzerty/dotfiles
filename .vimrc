@@ -47,7 +47,7 @@ set noswapfile              " no .%.swp
 set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages
 set wildmenu                " autocomplete suggestion menu
 set wildmode=longest,list   " autocomplete term style
-set nrformats+=alpha        " CTRL+A and CTRL+X works also for letters
+"set nrformats+=alpha        " CTRL+A and CTRL+X works also for letters
 set virtualedit=block       " enable virtualedit for visual block mode
 "set iskeyword-=_            " treat _ like whitespace and tabs
 setlocal spelllang=en_us         " set lang for spellcheck
@@ -86,7 +86,7 @@ vnoremap <right> >gv
 " move lines up and down
 nnoremap <up> kddpk
 nnoremap <down> ddp
-" TODO google a better way
+" TODO: google a better way
 vnoremap <up> :<C-u>sil! '<,'>m'<-2<CR>'<V'>
 vnoremap <down> dp'[V']
 
@@ -139,18 +139,20 @@ vnoremap <Leader>c :s,^,#,<Esc>
 vnoremap <Leader>C :s,^#,,<Esc>
 
 inoremap <Leader>r <C-o>:registers<Esc>
-inoremap <Leader>i #include
-inoremap <Leader>d #define
 inoremap <Leader>w <esc>:w<Esc>
 
-" TODO enable those only if plugin is installed
+" TODO: make include and define localleader stuff
+inoremap <Leader>i #include
+inoremap <Leader>d #define
+
+" TODO: enable those only if plugin is installed
 noremap <Leader>, :TabooRename 
 noremap <Leader>n :NERDTreeToggle<Esc>
 
 "" filtype dependent commands "
 """""""""""""""""""""""""""""""
 "see more on http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
-" TODO group others too!
+" TODO: group others too!
 filetype on
 
 augroup filetype_ruby
