@@ -58,7 +58,9 @@ set formatoptions-=r        " no autocomment new lines
 """"""""""""
 "allow link follow with enter
 nnoremap £ <C-]>
+
 nnoremap <F5> :e<CR>
+nnoremap <SPACE> :set relativenumber!<CR>
 
 "tabs navigation control-free-firefox-like
 noremap <S-tab> :tabprevious<CR>
@@ -103,7 +105,7 @@ inoremap JJ <Esc>o
 inoremap KK <Esc>O
 inoremap jk <Esc>
 
-" readline movement in insert mode
+" readline(3) movement in insert mode
 inoremap <C-a> <C-o>0
 inoremap <C-e> <C-o>$
 inoremap <C-f> <C-o>l
