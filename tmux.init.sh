@@ -7,18 +7,18 @@ echo "setting up the 'wrk' tmux session"
 # wrk:2 'rt'
 # wrk:3 'C'
 
-tmux new-session -s wrk -n TODO -d
-tmux split-window -v -t wrk:0
-tmux resize-pane -t wrk:0.0 -D 12
-
-tmux new-window -t wrk -n edit
-tmux split-window -v -t wrk:1
-tmux split-window -h -t wrk:1.1
-tmux resize-pane -t wrk:1.0 -D 25
-
-tmux new-window -t wrk -n tests
-tmux split-window -h -t wrk:2
-
+tmux new-session -s wrk -d
+#tmux split-window -v -t wrk:0
+#tmux resize-pane -t wrk:0.0 -D 12
+#
+#tmux new-window -t wrk -n uno
+#tmux split-window -v -t wrk:1
+#tmux split-window -h -t wrk:1.1
+#tmux resize-pane -t wrk:1.0 -D 25
+#
+#tmux new-window -t wrk -n due
+#tmux split-window -h -t wrk:2
+#
 #tmux new-window -t wrk -n C
 #tmux split-window -h -t wrk:3
 #tmux split-window -v -t wrk:3.1
@@ -37,8 +37,8 @@ tmux split-window -h -t wrk:2
 #tmux send-keys -t wrk:3.1 'cd ~/c' C-m
 #tmux send-keys -t wrk:4.0 'cd ~/ruby' C-m
 #tmux send-keys -t wrk:4.1 'cd ~/ruby' C-m
-
-tmux select-window -t :2
-tmux select-pane -t 1
+#
+#tmux select-window -t :2
+#tmux select-pane -t 1
 
 tmux -2 attach -t wrk

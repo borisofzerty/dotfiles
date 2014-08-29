@@ -180,9 +180,9 @@ autocmd FileType c    setlocal ts=8 sts=8 sw=8 noexpandtab
 "autocmd FileType c    :% foldopen!
 autocmd FileType h    setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
 autocmd FileType cpp  setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
-autocmd FileType man  %s/.//g | call setpos('.',[0,1,0,0])
+autocmd FileType man  %s/.//ge | call setpos('.',[0,1,0,0])
 autocmd FileType man  setlocal cursorline nolist colorcolumn=0 "manpages, yay
-autocmd FileType man  noremap <buffer> <LocalLeader>f /^\s\+--\?
+autocmd FileType man  noremap <buffer> <LocalLeader>f /\C^\s\+--\?,\?\($\\|\s\)<left><left><left><left><left><left><left><left><left><left><left><left>
 autocmd FileType man  noremap q :q!<Esc>
 autocmd FileType help setlocal cursorline nolist colorcolumn=0 "help, yay
 autocmd FileType text setlocal cursorline nolist colorcolumn=0
