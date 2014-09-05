@@ -64,7 +64,6 @@ nnoremap <SPACE> :set relativenumber!<CR>
 
 "tabs navigation control-free-firefox-like
 noremap <S-tab> :tabprevious<CR>
-noremap <tab>   :tabnext<CR>
 noremap 1<tab>  1gt<CR>
 noremap 2<tab>  2gt<CR>
 noremap 3<tab>  3gt<CR>
@@ -119,8 +118,6 @@ inoremap <Leader><Leader>  <Esc><Esc>
 noremap  <Leader><Leader>  <Esc><Esc>
 vnoremap <Leader><Leader>  <Esc><Esc>
 
-nnoremap <leader>e :e<CR>
-
 noremap <Leader>O O<Esc>j
 noremap <Leader>o o<Esc>k
 
@@ -137,15 +134,15 @@ noremap <Leader>t :tags<Esc>
 noremap <Leader>w :w<Esc>
 noremap <Leader>W :%s/\s\+$//e<CR>:w<CR>
 
-vnoremap <Leader>c :s,^,#,<Esc>
-vnoremap <Leader>C :s,^#,,<Esc>
+" TODO: localleader in automaps
+"vnoremap <Leader>c :s,^,#,<Esc>
+"vnoremap <Leader>C :s,^#,,<Esc>
+"inoremap <Leader>i #include
+"inoremap <Leader>d #define
 
 inoremap <Leader>r <C-o>:registers<Esc>
 inoremap <Leader>w <esc>:w<Esc>
 
-" TODO: make include and define localleader stuff
-inoremap <Leader>i #include
-inoremap <Leader>d #define
 
 " TODO: enable those only if plugin is installed
 noremap <Leader>, :TabooRename 
@@ -158,20 +155,32 @@ noremap <Leader>n :NERDTreeToggle<Esc>
 filetype on
 
 augroup filetype_ruby
+    autocmd!
     autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType ruby vnoremap <buffer> <LocalLeader>c :s,^,#,<Esc>
     autocmd FileType ruby vnoremap <buffer> <LocalLeader>C :s,^#,,<Esc>
 augroup END
 
 augroup filetype_eruby
+    autocmd!
     autocmd FileType eruby setlocal ts=2 sts=2 sw=2 expandtab
 augroup END
 
 augroup filetype_vim
+    autocmd!
     autocmd FileType vim setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType vim vnoremap <buffer> <LocalLeader>c :s,^,",<Esc>
     autocmd FileType vim vnoremap <buffer> <LocalLeader>C :s,^",,<Esc>
 augroup END
+
+augroup bash-fc
+    autocmd!
+    autocmd BufRead /tmp/bash-fc-* g/^/m0 | $
+    autocmd BufRead /tmp/bash-fc-* setlocal relativenumber
+    autocmd BufRead /tmp/bash-fc-* nnoremap <CR> o<esc>dGkdggZZ
+    autocmd BufRead /tmp/bash-fc-* nnoremap q   :0,$d<CR>ZZ
+augroup END
+
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab  "for makefiles, go with tabs
 autocmd FileType help setlocal ts=8 sts=8 sw=8 noexpandtab

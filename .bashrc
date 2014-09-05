@@ -77,15 +77,17 @@ esac
 
 # some more ls aliases
 alias ee='exit'
+alias rm='rm -I'
 alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls -CF'
 alias ..='cd ..'
 alias ,,='echo -e "### ### ### ### ###\n### ### ### ### ###\n### ### ### ### ###"'
+alias hgrep='history | grep'
+alias dfc='df -h | cowsay -bn'
 alias mm='~/scripts/manmaker.sh'
 alias tt='~/scripts/tmux.init.sh'
-alias dfc='df -h | cowsay -bn'
-alias hgrep='history | grep'
+alias ff='fc 0 -10000'
 
 export CLICOLOR=1
 # enable color support of ls and also add handy aliases
@@ -114,7 +116,7 @@ fi
 EDITOR=vim
 
 # display
-DISPLAY=localhost:10.0
+# DISPLAY=localhost:10.0
 
 # tmux autostart/autoattach if needed
 #[ $TERM == 'screen-256color' ] || tmux -2 attach -t wrk
