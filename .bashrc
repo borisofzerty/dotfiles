@@ -89,6 +89,9 @@ alias mm='~/scripts/manmaker.sh'
 alias tt='~/scripts/tmux.init.sh'
 alias ff='fc 0 -10000'
 
+# functions: TODO put in different file
+function mkcd () { mkdir -p $1 && cd $1 ; }
+
 export CLICOLOR=1
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

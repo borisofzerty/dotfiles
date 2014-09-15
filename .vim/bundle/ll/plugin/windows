@@ -12,7 +12,7 @@ syntax on               " syntax highlight enabled
 set splitbelow          " split in a logic way
 set splitright          " split in a logic way
 set laststatus=2        " statusline ALWAYS visible
-set statusline=%f\ %#Todo#%m%*\ [%{strlen(&fenc)?(&fenc.','):''}%{&ff}]%h%r%=[0x%B]\ %c,%l/%L\ \ [%{tabpagenr()}/%{winnr()}\ %{bufnr('%')}]\ %p%%
+set statusline=%f\ %#Todo#%m%*\ [%{strlen(&fenc)?(&fenc.','):''}%{&ff}]%h%r%=[0x%B]\ %c,%l/%L\ %p%%
 
 
 "" Grafical - affecting vim "
@@ -40,7 +40,6 @@ set autoindent          " automatic indentation
 
 "" Other "
 """"""""""
-set hidden                  " allow hidden buffers
 set mouse=""                " disable mouse
 set exrc                    " enable local .exrc file
 set noswapfile              " no .%.swp
@@ -66,8 +65,16 @@ nnoremap <SPACE> :set relativenumber!<CR>
 
 "tabs navigation control-free-firefox-like
 noremap <S-tab> :tabprevious<CR>
+noremap 1<tab>  1gt<CR>
+noremap 2<tab>  2gt<CR>
+noremap 3<tab>  3gt<CR>
+noremap 4<tab>  4gt<CR>
+noremap 5<tab>  5gt<CR>
+noremap 6<tab>  6gt<CR>
+noremap 7<tab>  7gt<CR>
+noremap 8<tab>  8gt<CR>
+noremap 9<tab>  9gt<CR>
 "noremap <C-t>   :tabnew<CR>
-
 
 " make Y behave like other capitals
 noremap Y y$
@@ -107,10 +114,6 @@ inoremap <C-b> <C-o>h
 let mapleader = "é"
 let maplocalleader = "à"
 
-" jump to buffers CTRL_^ replacement
-noremap <leader>b <C-^>
-noremap <leader>6 <C-^>
-
 cnoremap <Leader><Leader>  <Esc><Esc>
 inoremap <Leader><Leader>  <Esc><Esc>
 noremap  <Leader><Leader>  <Esc><Esc>
@@ -130,9 +133,13 @@ noremap <Leader>j :jumps<Esc>
 noremap <Leader>t :tags<Esc>
 
 noremap <Leader>w :w<Esc>
-noremap <Leader>q :confirm q<Esc>
-noremap <Leader>a :confirm qa<Esc>
 noremap <Leader>W :%s/\s\+$//e<CR>:w<CR>
+
+" TODO: localleader in automaps
+"vnoremap <Leader>c :s,^,#,<Esc>
+"vnoremap <Leader>C :s,^#,,<Esc>
+"inoremap <Leader>i #include
+"inoremap <Leader>d #define
 
 inoremap <Leader>r <C-o>:registers<Esc>
 inoremap <Leader>w <esc>:w<Esc>
