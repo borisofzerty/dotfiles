@@ -1,3 +1,6 @@
+"" TODO: move stuff to .vim/vimrc_addons folder
+"""""""""""""""""""""""""
+
 "" Graphical - no impact "  
 """""""""""""""""""""""""
 set number              " line numbers
@@ -6,14 +9,18 @@ set showcmd             " show the command you are typing
 set colorcolumn=81      " highlight 80th col
 set nolist              " end of line and trailing spaces visibility
 set listchars=trail:*,tab:>-,eol:$
-set scrolloff=3         " keep cursor distant from top/pottom while scrolling
+set scrolloff=2         " keep cursor distant from top/pottom while scrolling
 syntax on               " syntax highlight enabled
 
 set splitbelow          " split in a logic way
 set splitright          " split in a logic way
-set laststatus=2        " statusline ALWAYS visible
-set statusline=%f\ %#Todo#%m%*\ [%{strlen(&fenc)?(&fenc.','):''}%{&ff}]%h%r%=[0x%B]\ %c,%l/%L\ \ [%{tabpagenr()}/%{winnr()}\ %{bufnr('%')}]\ %p%%
 
+
+" TODO: implement as plugin
+" statusline
+"set laststatus=2        " statusline ALWAYS visible
+"set statusline=%f\ %#Todo#%m%*\ [%{strlen(&fenc)?(&fenc.','):''}%{&ff}]%h%r%=c0x%B\ %c,%l/%L\ %{Hbar()}\ w%{winnr()}\ b%{bufnr('%')}\ %p%%
+source ~/.vim/vimrc_addons/statusline.vim
 
 "" Grafical - affecting vim "
 """""""""""""""""""""""""""""
@@ -26,7 +33,8 @@ else
     colorscheme desert
 endif
 
-set ignorecase          " search is not case sensitive
+"set ignorecase          " search is not case sensitive
+set smartcase           " search is case sensitive if UPPER letter in pattern
 set nohlsearch          " highlight searchs
 
 
@@ -110,6 +118,7 @@ let maplocalleader = "à"
 " jump to buffers CTRL_^ replacement
 noremap <leader>b <C-^>
 noremap <leader>6 <C-^>
+noremap § <C-^>
 
 cnoremap <Leader><Leader>  <Esc><Esc>
 inoremap <Leader><Leader>  <Esc><Esc>
@@ -136,6 +145,15 @@ noremap <Leader>W :%s/\s\+$//e<CR>:w<CR>
 
 inoremap <Leader>r <C-o>:registers<Esc>
 inoremap <Leader>w <esc>:w<Esc>
+
+nnoremap <Leader>v :execute "silent pedit +" . line(".") . "\|normal\\ zt %"<cr>
+nnoremap <Leader>c :pclose<cr>
+
+" TODO: implement as plugin
+source ~/.vim/vimrc_addons/fmt.vim
+
+" a couple bindings for better CamelCase and under_score_case navigation
+source ~/.vim/vimrc_addons/fmt.vim
 
 " plugin related
 noremap <Leader>n :NERDTreeToggle<Esc>
@@ -172,6 +190,7 @@ augroup filetype_vim
     autocmd FileType vim setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType vim vnoremap <buffer> <LocalLeader>c :s,^,",<Esc>
     autocmd FileType vim vnoremap <buffer> <LocalLeader>C :s,^",,<Esc>
+    autocmd FileType vim nnoremap <buffer> <LocalLeader>s :w<cr>:so %<cr>
 augroup END
 
 augroup bash-fc
