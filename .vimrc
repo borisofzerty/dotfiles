@@ -1,20 +1,8 @@
-"" TODO: move stuff to .vim/vimrc_addons folder
-"""""""""""""""""""""""""
-
-"" Graphical - no impact "  
-"""""""""""""""""""""""""
-set number              " line numbers
-set ruler               " current posizion in corner
-set showcmd             " show the command you are typing
-set colorcolumn=81      " highlight 80th col
-set nolist              " end of line and trailing spaces visibility
-set listchars=trail:*,tab:>-,eol:$
-set scrolloff=2         " keep cursor distant from top/pottom while scrolling
-syntax on               " syntax highlight enabled
-
-set splitbelow          " split in a logic way
-set splitright          " split in a logic way
-
+source ~/.vim/vimrc_addons/set_options.vim
+source ~/.vim/vimrc_addons/fmt.vim " TODO: implement as plugin
+source ~/.vim/vimrc_addons/mappings.vim
+source ~/.vim/vimrc_addons/autocmd.vim
+source ~/.vim/vimrc_addons/camelCase.vim
 
 " TODO: implement as plugin
 " statusline
@@ -24,7 +12,6 @@ source ~/.vim/vimrc_addons/statusline.vim
 
 "" Grafical - affecting vim "
 """""""""""""""""""""""""""""
-set modeline            " allow modeline ( /* vim: set sw=2: */ )
 " if terminal allow funny coloring, use them all!
 if $TERM == "xterm" || $TERM == "screen-256color" || $TERM == "xterm-256color"
     set t_Co=256
@@ -33,191 +20,10 @@ else
     colorscheme desert
 endif
 
-"set ignorecase          " search is not case sensitive
-set smartcase           " search is case sensitive if UPPER letter in pattern
-set nohlsearch          " highlight searchs
-
-
-"" Tabs "
-"""""""""
-set tabstop=4           " 4 spaces for a tab
-set shiftwidth=4
-set softtabstop=4
-set expandtab           " use spaces, not tabs
-set autoindent          " automatic indentation
-
-"" Other "
-""""""""""
-set hidden                  " allow hidden buffers
-set mouse=""                " disable mouse
-set exrc                    " enable local .exrc file
-set noswapfile              " no .%.swp
-" sessions, use :mksession to create new one
-set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages
-set wildmenu                " autocomplete suggestion menu
-set wildmode=longest,list   " autocomplete term style
-"set nrformats+=alpha        " CTRL+A and CTRL+X works also for letters
-set virtualedit=block       " enable virtualedit for visual block mode
-"set iskeyword-=_            " treat _ like whitespace and tabs
-setlocal spelllang=en_us         " set lang for spellcheck
-set formatoptions-=o        " no autocomment new lines
-set formatoptions-=r        " no autocomment new lines
-set nowrapscan              " no file wrap during search
-
-"" mapping "
-""""""""""""
-"allow link follow with enter
-nnoremap £ <C-]>
-
-nnoremap <F5> :e<CR>
-nnoremap <SPACE> :set relativenumber!<CR>
-
-"tabs navigation control-free-firefox-like
-noremap <S-tab> :tabprevious<CR>
-"noremap <C-t>   :tabnew<CR>
-
-
-" make Y behave like other capitals
-noremap Y y$
-
-" indent lines
-nnoremap <left> <<
-vnoremap <left> <gv
-nnoremap <right> >>
-vnoremap <right> >gv
-
-" move lines up and down
-nnoremap <up> kddpk
-nnoremap <down> ddp
-" TODO: google a better way
-vnoremap <up> :<C-u>sil! '<,'>m'<-2<CR>'<V'>
-vnoremap <down> dp'[V']
-
-" no arrow movement
-inoremap <left> <nop>
-inoremap <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-
-" exit form insert mode with move
-inoremap jj <Esc>j
-inoremap kk <Esc>k
-inoremap JJ <Esc>o
-inoremap KK <Esc>O
-inoremap jk <Esc>
-
-" readline(3) movement in insert mode
-inoremap <C-a> <C-o>0
-inoremap <C-e> <C-o>$
-inoremap <C-f> <C-o>l
-inoremap <C-b> <C-o>h
-
-let mapleader = "é"
-let maplocalleader = "à"
-
-" jump to buffers CTRL_^ replacement
-noremap <leader>b <C-^>
-noremap <leader>6 <C-^>
-noremap § <C-^>
-
-cnoremap <Leader><Leader>  <Esc><Esc>
-inoremap <Leader><Leader>  <Esc><Esc>
-noremap  <Leader><Leader>  <Esc><Esc>
-vnoremap <Leader><Leader>  <Esc><Esc>
-
-noremap <Leader>O O<Esc>j
-noremap <Leader>o o<Esc>k
-
-noremap <Leader>h :set hlsearch!<Esc>
-noremap <Leader>l :set list!<Esc>
-noremap <Leader>p :set paste!<Esc>
-noremap <Leader>s :set spell!<Esc>
-
-noremap <Leader>r :registers<Esc>
-noremap <Leader>m :marks<Esc>
-noremap <Leader>j :jumps<Esc>
-noremap <Leader>t :tags<Esc>
-
-noremap <Leader>w :w<Esc>
-noremap <Leader>q :confirm q<Esc>
-noremap <Leader>a :confirm qa<Esc>
-noremap <Leader>W :%s/\s\+$//e<CR>:w<CR>
-
-inoremap <Leader>r <C-o>:registers<Esc>
-inoremap <Leader>w <esc>:w<Esc>
-
-nnoremap <Leader>v :execute "silent pedit +" . line(".") . "\|normal\\ zt %"<cr>
-nnoremap <Leader>c :pclose<cr>
-
-" TODO: implement as plugin
-source ~/.vim/vimrc_addons/fmt.vim
-
-" a couple bindings for better CamelCase and under_score_case navigation
-source ~/.vim/vimrc_addons/fmt.vim
-
-" plugin related
-noremap <Leader>n :NERDTreeToggle<Esc>
-
-imap <C-J> <Plug>snipMateNextOrTrigger
-smap <C-J> <Plug>snipMateNextOrTrigger
-imap <C-H> <Plug>snipMateBack
-smap <C-H> <Plug>snipMateBack
-imap <C-G> <Plug>snipMateShow
-smap <C-G> <Plug>snipMateShow
-
-map <Leader><space> <Plug>llLongList
 
 "" filtype dependent commands "
 """""""""""""""""""""""""""""""
 "see more on http://vimcasts.org/episodes/whitespace-preferences-and-filetypes/
-" TODO: group others too!
-filetype on
-
-augroup filetype_ruby
-    autocmd!
-    autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType ruby vnoremap <buffer> <LocalLeader>c :s,^,#,<Esc>
-    autocmd FileType ruby vnoremap <buffer> <LocalLeader>C :s,^#,,<Esc>
-augroup END
-
-augroup filetype_eruby
-    autocmd!
-    autocmd FileType eruby setlocal ts=2 sts=2 sw=2 expandtab
-augroup END
-
-augroup filetype_vim
-    autocmd!
-    autocmd FileType vim setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType vim vnoremap <buffer> <LocalLeader>c :s,^,",<Esc>
-    autocmd FileType vim vnoremap <buffer> <LocalLeader>C :s,^",,<Esc>
-    autocmd FileType vim nnoremap <buffer> <LocalLeader>s :w<cr>:so %<cr>
-augroup END
-
-augroup bash-fc
-    autocmd!
-    autocmd BufRead /tmp/bash-fc-* g/^/m0 | $
-    autocmd BufRead /tmp/bash-fc-* setlocal relativenumber
-    autocmd BufRead /tmp/bash-fc-* nnoremap <CR> o<esc>dGkdggZZ
-    autocmd BufRead /tmp/bash-fc-* nnoremap q   :0,$d<CR>ZZ
-augroup END
-
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab  "for makefiles, go with tabs
-autocmd FileType help setlocal ts=8 sts=8 sw=8 noexpandtab
-autocmd FileType c    setlocal ts=8 sts=8 sw=8 noexpandtab
-"autocmd FileType c    setlocal foldmethod=syntax tags+=~/linux/lib/tags  "for c, go with tabs
-"autocmd FileType c    :% foldopen!
-autocmd FileType h    setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
-autocmd FileType cpp  setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
-autocmd FileType man  %s/.//ge | call setpos('.',[0,1,0,0])
-autocmd FileType man  setlocal cursorline nolist colorcolumn=0 "manpages, yay
-autocmd FileType man  noremap <buffer> <LocalLeader>f /\C^\s\+--\?,\?\($\\|\s\)<left><left><left><left><left><left><left><left><left><left><left><left>
-autocmd FileType man  noremap q :q!<Esc>
-autocmd FileType help setlocal cursorline nolist colorcolumn=0 "help, yay
-autocmd FileType text setlocal cursorline nolist colorcolumn=0
-"autocmd FileType text noremap <Down> :/^[*=-]\+$/-1 :normal zt jj0<Esc>
-"autocmd FileType text noremap <Up> :?^[*=-]\+$?-1 :normal zt 0<Esc>
-"autocmd FileType python source ~/.vim/python/mystuff.vim
 
 "" plugins "
 """"""""""""
