@@ -1,6 +1,28 @@
 let mapleader = "é"
 let maplocalleader = "à"
 
+"" using space to move between buffers "
+""""""""""""""""""""""""""""""""""""""""
+
+nnoremap <space><space>B :bfirst<CR>
+nnoremap <space><space>b :blast<CR>
+nnoremap <space>b :bnext<CR>
+nnoremap <space>B :bNext<CR>
+nnoremap <space><space>A :first<CR>
+nnoremap <space><space>a :last<CR>
+nnoremap <space>a :next<CR>
+nnoremap <space>A :Next<CR>
+nnoremap <space><space>T :tabfirst<CR>
+nnoremap <space><space>t :tablast<CR>
+nnoremap <space>t :tabnext<CR>
+nnoremap <space>T :tabNext<CR>
+nnoremap <space>1 :1tabnext<CR>
+nnoremap <space>2 :2tabnext<CR>
+nnoremap <space>3 :3tabnext<CR>
+nnoremap <space>4 :4tabnext<CR>
+nnoremap <space>5 :5tabnext<CR>
+nnoremap <space>6 :6tabnext<CR>
+
 "" Navigation "
 """""""""""""""
 
@@ -8,9 +30,7 @@ let maplocalleader = "à"
 nnoremap £ <C-]>
 
 "tabs navigation control-free-firefox-like
-noremap <S-tab> :tabprevious<CR>
-
-nnoremap <SPACE> :set relativenumber!<CR>
+noremap <S-tab> :set relativenumber!<CR>
 
 "" Moving text around "
 """""""""""""""""""""""
