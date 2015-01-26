@@ -23,14 +23,19 @@ nnoremap <space>4 :4tabnext<CR>
 nnoremap <space>5 :5tabnext<CR>
 nnoremap <space>6 :6tabnext<CR>
 
-"" Navigation "
-"""""""""""""""
+nnoremap <leader>0 :0argu<CR>
+nnoremap <leader>1 :1argu<CR>
+nnoremap <leader>2 :2argu<CR>
+nnoremap <leader>3 :3argu<CR>
+nnoremap <leader>4 :4argu<CR>
+nnoremap <leader>5 :5argu<CR>
+nnoremap <leader>6 :6argu<CR>
+
+"" More navigation "
+""""""""""""""""""""
 
 "allow link follow with enter
 nnoremap £ <C-]>
-
-"tabs navigation control-free-firefox-like
-noremap <S-tab> :set relativenumber!<CR>
 
 "" Moving text around "
 """""""""""""""""""""""
@@ -80,17 +85,19 @@ source ~/.vim/vimrc_addons/camelCase.vim
 """"""""""""""""""""
 
 " jump to buffers CTRL_^ replacement
-noremap <leader>b <C-^>
+"noremap <leader>b <C-^>
 noremap § <C-^>
 
 noremap <Leader>w :w<Esc>
 inoremap <Leader>w <esc>:w<Esc>
 noremap <Leader>q :confirm q<Esc>
-noremap <Leader>a :confirm qa<Esc>
+noremap <Leader>Q :confirm qa<Esc>
 noremap <Leader>W :%s/\s\+$//e<CR>:w<CR>
 
 "" Shortcuts "
 """"""""""""""
+
+noremap <S-tab> :set relativenumber!<CR>
 
 cnoremap <Leader><Leader>  <Esc><Esc>
 inoremap <Leader><Leader>  <Esc><Esc>
@@ -108,8 +115,16 @@ noremap <Leader>m :marks<Esc>
 noremap <Leader>j :jumps<Esc>
 noremap <Leader>t :tags<Esc>
 
+"" Preview window "
+"""""""""""""""""""
+
 nnoremap <Leader>v :execute "silent pedit +" . line(".") . "\|normal\\ zt %"<cr>
 nnoremap <Leader>c :pclose<cr>
+
+" TODO: call function to display cool arglist
+nnoremap <Leader>a :args<cr>
+nnoremap <Leader>y :set previewheight=1<CR>
+nnoremap <Leader>x :set previewheight=10<CR>
 
 " make Y behave like other capitals
 noremap Y y$
@@ -126,4 +141,5 @@ smap <C-H> <Plug>snipMateBack
 imap <C-G> <Plug>snipMateShow
 smap <C-G> <Plug>snipMateShow
 
-map <Leader><space> <Plug>llLongList
+map <Leader>a <Plug>llArgList
+map <Leader>b <Plug>llFullList

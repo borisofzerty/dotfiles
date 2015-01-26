@@ -21,10 +21,10 @@ set cpo&vim
 "vnoremap    <leader>x :<c-u>call <SID>GrepRec(visualmode())<cr>
 
 " no motion allowed
-if !hasmapto('<Plug>PyrefBuiltin')
+"if !hasmapto('<Plug>PyrefBuiltin')
     " TODO map in vimrc if python file
-    map <unique> <Leader>x  <Plug>PyrefBuiltin
-endif
+"    map <unique> <Leader>x  <Plug>PyrefBuiltin
+"endif
 
 noremap <script> <Plug>PyrefBuiltin <SID>Builtin
 noremap <SID>Builtin   :call <SID>Builtin()<cr>
