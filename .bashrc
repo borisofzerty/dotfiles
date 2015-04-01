@@ -116,7 +116,8 @@ fi
 #rvm
 
 # default editor: vim
-EDITOR=vim
+export SUDO_EDITOR=vim
+export EDITOR=vim
 
 # display
 # DISPLAY=localhost:10.0
