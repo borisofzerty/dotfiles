@@ -2,8 +2,6 @@ let mapleader = "é"
 let maplocalleader = "à"
 
 "" using space to move between buffers "
-""""""""""""""""""""""""""""""""""""""""
-
 nnoremap <space><space>B :bfirst<CR>
 nnoremap <space><space>b :blast<CR>
 nnoremap <space>b :bnext<CR>
@@ -23,6 +21,7 @@ nnoremap <space>4 :4tabnext<CR>
 nnoremap <space>5 :5tabnext<CR>
 nnoremap <space>6 :6tabnext<CR>
 
+"" using <leader> to move between buffers "
 nnoremap <leader>0 :0argu<CR>
 nnoremap <leader>1 :1argu<CR>
 nnoremap <leader>2 :2argu<CR>
@@ -30,12 +29,6 @@ nnoremap <leader>3 :3argu<CR>
 nnoremap <leader>4 :4argu<CR>
 nnoremap <leader>5 :5argu<CR>
 nnoremap <leader>6 :6argu<CR>
-
-"" More navigation "
-""""""""""""""""""""
-
-"allow link follow with enter
-nnoremap £ <C-]>
 
 "" Moving text around "
 """""""""""""""""""""""
@@ -97,7 +90,8 @@ noremap <Leader>W :%s/\s\+$//e<CR>:w<CR>
 "" Shortcuts "
 """"""""""""""
 
-noremap <S-tab> :set relativenumber!<CR>
+nnoremap <leader>e :exec getline(".")<cr>
+noremap <S-tab> :exec 'set'  &nu ? "rnu" : "nu"<cr>
 
 cnoremap <Leader><Leader>  <Esc><Esc>
 inoremap <Leader><Leader>  <Esc><Esc>
@@ -113,7 +107,6 @@ noremap <Leader>r :registers<Esc>
 inoremap <Leader>r <C-o>:registers<Esc>
 noremap <Leader>m :marks<Esc>
 noremap <Leader>j :jumps<Esc>
-noremap <Leader>t :tags<Esc>
 
 "" Preview window "
 """""""""""""""""""
@@ -122,12 +115,18 @@ nnoremap <Leader>v :execute "silent pedit +" . line(".") . "\|normal\\ zt %"<cr>
 nnoremap <Leader>c :pclose<cr>
 
 " TODO: call function to display cool arglist
-nnoremap <Leader>a :args<cr>
+"nnoremap <Leader>a :args<cr>
 nnoremap <Leader>y :set previewheight=1<CR>
 nnoremap <Leader>x :set previewheight=10<CR>
 
 " make Y behave like other capitals
 noremap Y y$
+
+"" tags "
+"""""""""
+noremap <Leader>t :tags<Esc>
+nnoremap £ <C-]>
+inoremap £ <C-X><C-]>
 
 "" plugin related "
 """""""""""""""""""
