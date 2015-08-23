@@ -1,5 +1,5 @@
 set laststatus=2        " statusline ALWAYS visible
-set statusline=%f\ %#Todo#%m%*\ [%{strlen(&fenc)?(&fenc.','):''}%{&ff}]%h%r%=c0x%B\ %c,%l/%L\ %{Hbar()}\ w%{winnr()}\ b%{bufnr('%')}\ %p%%
+setlocal statusline=%f\ %#Todo#%m%*\ [%{strlen(&fenc)?(&fenc.','):''}%{&ff}]%h%r%=c0x%B\ %c,%l/%L\ %{Hbar()}\ w%{winnr()}\ b%{bufnr('%')}\ %p%%
 let statusl_original = &statusline
 nnoremap - :call <SID>Echobar(statusl_original)<cr>
 
@@ -16,7 +16,7 @@ endfunction
 
 function! s:Echobar(original_statusline)
     if &statusline =~ '^[-#]'
-        execute "set statusline=" . escape(a:original_statusline, ' \')
+        execute "setlocal statusline=" . escape(a:original_statusline, ' \')
         return
     endif
 
@@ -49,5 +49,5 @@ function! s:Echobar(original_statusline)
         let after_c -= 1
     endwhile
 
-    execute "set statusline=" . escape(str, ' \')
+    execute "setlocal statusline=" . escape(str, ' \')
 endfunction
