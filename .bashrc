@@ -87,7 +87,7 @@ alias hgrep='history | grep'
 alias dfc='df -h | cowsay -bn'
 alias mm='~/scripts/manmaker.sh'
 alias tt='~/scripts/tmux.init.sh'
-alias ff='fc 0 -10000'
+alias ff='fc 0 -100'
 
 # functions: TODO put in different file
 function mkcd () { mkdir -p $1 && cd $1 ; }

@@ -22,6 +22,7 @@ augroup END
 
 augroup bash-fc
     autocmd!
+    autocmd BufRead /tmp/bash-fc-* setlocal ft=sh
     autocmd BufRead /tmp/bash-fc-* g/^/m0 | $
     autocmd BufRead /tmp/bash-fc-* setlocal relativenumber
     autocmd BufRead /tmp/bash-fc-* nnoremap <CR> o<esc>dGkdggZZ
