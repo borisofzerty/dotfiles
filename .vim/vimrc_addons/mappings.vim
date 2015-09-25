@@ -133,12 +133,12 @@ inoremap £ <C-X><C-]>
 
 noremap <Leader>n :NERDTreeToggle<Esc>
 
-imap <C-J> <Plug>snipMateNextOrTrigger
-smap <C-J> <Plug>snipMateNextOrTrigger
-imap <C-H> <Plug>snipMateBack
-smap <C-H> <Plug>snipMateBack
-imap <C-G> <Plug>snipMateShow
-smap <C-G> <Plug>snipMateShow
+"imap <C-J> <Plug>snipMateNextOrTrigger
+"smap <C-J> <Plug>snipMateNextOrTrigger
+"imap <C-H> <Plug>snipMateBack
+"smap <C-H> <Plug>snipMateBack
+"imap <C-G> <Plug>snipMateShow
+"smap <C-G> <Plug>snipMateShow
 
 map <Leader>a <Plug>llArgList
 map <Leader>b <Plug>llFullList
