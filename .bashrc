@@ -82,15 +82,22 @@ alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls -CF'
 alias ..='cd ..'
-alias ,,='echo -e "### ### ### ### ###\n### ### ### ### ###\n### ### ### ### ###"'
 alias hgrep='history | grep'
 alias dfc='df -h | cowsay -bn'
 alias mm='~/scripts/manmaker.sh'
 alias tt='~/scripts/tmux.init.sh'
-alias ff='fc 0 -100'
+alias ff='fc 0 -200'
 
 # functions: TODO put in different file
 function mkcd () { mkdir -p $1 && cd $1 ; }
+function ,, () {
+    for i in $(seq 1 $(tput cols)) ; do
+        echo -n "#"
+    done
+    echo ""
+}
+
+export MANWIDTH=$(($(tput cols) - 3))
 
 export CLICOLOR=1
 # enable color support of ls and also add handy aliases
@@ -125,6 +132,13 @@ export EDITOR=vim
 # tmux autostart/autoattach if needed
 #[ $TERM == 'screen-256color' ] || tmux -2 attach -t wrk
 #[ $? -ne 0 ] && [ -f ~/scripts/tmux.init.sh ] && . ~/scripts/tmux.init.sh
+
+#if [ ! -z $TMUX ]
+#then
+#    pane=$(tmux list-panes | grep '(active)' | cut -c 1)
+#    PS1="\[$(tput setaf 5)\]<\[$(tmux list-panes | grep '(active)' | cut -c 1)\]> "$PS1
+#fi
+
 
 export make='eval make 2>&1 | tee .log'
 export run='./a.out'
