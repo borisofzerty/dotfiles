@@ -91,7 +91,7 @@ noremap <Leader>W :%s/\s\+$//e<CR>:w<CR>
 """"""""""""""
 
 nnoremap <leader>e :exec getline(".")<cr>
-noremap <S-tab> :exec 'set'  &nu ? "rnu" : "nu"<cr>
+noremap <S-tab> :set rnu!<cr>
 
 cnoremap <Leader><Leader>  <Esc><Esc>
 inoremap <Leader><Leader>  <Esc><Esc>
@@ -107,6 +107,9 @@ noremap <Leader>r :registers<Esc>
 inoremap <Leader>r <C-o>:registers<Esc>
 noremap <Leader>m :marks<Esc>
 noremap <Leader>j :jumps<Esc>
+
+nnoremap <C-y> <C-y><C-y><C-y>
+nnoremap <C-e> <C-e><C-e><C-e>
 
 "" Preview window "
 """""""""""""""""""

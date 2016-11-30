@@ -87,6 +87,11 @@ alias dfc='df -h | cowsay -bn'
 alias mm='~/scripts/manmaker.sh'
 alias tt='~/scripts/tmux.init.sh'
 alias ff='fc 0 -200'
+alias pd='pushd'
+alias pd2='pushd +2'
+alias pd3='pushd +3'
+alias pd4='pushd +4'
+alias pd5='pushd +5'
 
 # functions: TODO put in different file
 function mkcd () { mkdir -p $1 && cd $1 ; }
@@ -116,6 +121,15 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# LISA STUFF ###################################################################
+if [ -d $HOME/lisalogs/pylisa/bin ] ; then
+    PATH=$PATH:$HOME/lisalogs/pylisa/bin
+fi
+if [ -d $HOME/lisalogs/lisa_log_scripts/ ] ; then
+    PATH=$PATH:$HOME/lisalogs/lisa_log_scripts/
+fi
+################################################################################
+
 if [ -f ~/.bash_local ] ; then
     . ~/.bash_local 
 fi
@@ -127,7 +141,7 @@ export SUDO_EDITOR=vim
 export EDITOR=vim
 
 # display
-# DISPLAY=localhost:10.0
+#DISPLAY=:10.0
 
 # tmux autostart/autoattach if needed
 #[ $TERM == 'screen-256color' ] || tmux -2 attach -t wrk

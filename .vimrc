@@ -41,3 +41,7 @@ execute pathogen#infect()
 "call pathogen#helptags()
 filetype plugin indent on
 syntax on
+
+"" Plugins settings "
+"""""""""""""""""""""
+let g:jedi#popup_on_dot = 0
