@@ -82,6 +82,7 @@ alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls -CF'
 alias ..='cd ..'
+alias ,,='echo -e "### ### ### ### ###\n### ### ### ### ###\n### ### ### ### ###"'
 alias hgrep='history | grep'
 alias dfc='df -h | cowsay -bn'
 alias mm='~/scripts/manmaker.sh'
@@ -119,18 +120,6 @@ fi
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
-fi
-
-# LISA STUFF ###################################################################
-if [ -d $HOME/lisalogs/pylisa/bin ] ; then
-    PATH=$PATH:$HOME/lisalogs/pylisa/bin
-fi
-if [ -d $HOME/lisalogs/lisa_log_scripts/ ] ; then
-    PATH=$PATH:$HOME/lisalogs/lisa_log_scripts/
-fi
-################################################################################
-if [ -d $HOME/lp/ref ] ; then
-    export PYTHONPATH=$PYTHONPATH:$HOME/lp/ref
 fi
 
 if [ -f ~/.bash_local ] ; then

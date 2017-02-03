@@ -9,6 +9,7 @@ set listchars=trail:*,tab:>-,eol:$
 set scrolloff=2         " keep cursor distant from top/pottom while scrolling
 set splitbelow          " split in a logic way
 set splitright          " split in a logic way
+set foldmethod=indent
 
 "" Search "
 """""""""""
