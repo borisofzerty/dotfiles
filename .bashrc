@@ -129,9 +129,12 @@ if [ -d $HOME/lisalogs/lisa_log_scripts/ ] ; then
     PATH=$PATH:$HOME/lisalogs/lisa_log_scripts/
 fi
 ################################################################################
+if [ -d $HOME/lp/ref ] ; then
+    export PYTHONPATH=$PYTHONPATH:$HOME/lp/ref
+fi
 
 if [ -f ~/.bash_local ] ; then
-    . ~/.bash_local 
+    . ~/.bash_local
 fi
 
 #rvm

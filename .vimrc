@@ -45,3 +45,8 @@ syntax on
 "" Plugins settings "
 """""""""""""""""""""
 let g:jedi#popup_on_dot = 0
+
+"" Temp "
+"""""""""
+
+set foldmethod=indent
