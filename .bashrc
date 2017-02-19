@@ -77,7 +77,6 @@ esac
 
 # some more ls aliases
 alias ee='exit'
-alias rm='rm -I'
 alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls -CF'

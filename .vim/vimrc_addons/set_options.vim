@@ -10,6 +10,7 @@ set scrolloff=2         " keep cursor distant from top/pottom while scrolling
 set splitbelow          " split in a logic way
 set splitright          " split in a logic way
 set foldmethod=indent
+set nofoldenable
 
 "" Search "
 """""""""""
@@ -42,3 +43,4 @@ set formatoptions-=r        " no autocomment new lines
 set nowrapscan              " no file wrap during search
 set grepprg=grep\ -rn\ '$*'\ .\ /dev/null "use gre as recursive search from .
 set modeline                " allow modeline ( /* vim: set sw=2: */ )
+set notimeout
