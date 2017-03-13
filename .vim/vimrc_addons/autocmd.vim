@@ -30,7 +30,7 @@ augroup bash-fc
 augroup END
 
 augroup man
-    autocmd FileType man  %s/.//ge | call setpos('.',[0,1,0,0])
+    autocmd FileType man  silent %s/.//ge | call setpos('.',[0,1,0,0])
     autocmd FileType man  setlocal cursorline nolist colorcolumn=0 "manpages, yay
     autocmd FileType man  noremap <buffer> <LocalLeader>f /\C^\s\+--\?,\?\($\\|\s\\|=\)<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
     autocmd FileType man  noremap <buffer> <LocalLeader>s /^\c\C[A-Z ]*$<left><left><left><left><left><left><left><left><left><left>
