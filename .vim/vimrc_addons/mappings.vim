@@ -14,14 +14,14 @@ nnoremap <space>a :next<CR>:args<CR>
 nnoremap <space>A :Next<CR>:args<CR>
 nnoremap <space><space>T :tabfirst<CR>:args<CR>
 nnoremap <space><space>t :tablast<CR>:args<CR>
-nnoremap <space>t :tabnext<CR>:args<CR>
-nnoremap <space>T :tabNext<CR>:args<CR>
-nnoremap <space>1 :1tabnext<CR>:args<CR>
-nnoremap <space>2 :2tabnext<CR>:args<CR>
-nnoremap <space>3 :3tabnext<CR>:args<CR>
-nnoremap <space>4 :4tabnext<CR>:args<CR>
-nnoremap <space>5 :5tabnext<CR>:args<CR>
-nnoremap <space>6 :6tabnext<CR>:args<CR>
+nnoremap <space>t :tabnext<CR>
+nnoremap <space>T :tabNext<CR>
+nnoremap <space>1 :1tabnext<CR>
+nnoremap <space>2 :2tabnext<CR>
+nnoremap <space>3 :3tabnext<CR>
+nnoremap <space>4 :4tabnext<CR>
+nnoremap <space>5 :5tabnext<CR>
+nnoremap <space>6 :6tabnext<CR>
 
 nnoremap <leader>0 :0argu<CR>:args<CR>
 nnoremap <leader>1 :1argu<CR>:args<CR>
