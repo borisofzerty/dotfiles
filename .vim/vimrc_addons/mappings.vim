@@ -152,4 +152,4 @@ noremap <Leader>n :NERDTreeToggle<Esc>
 
 map <Leader>a <Plug>llArgList:argument<space>0
 map <Leader>b <Plug>llFullList:buffer<space>0
-nnoremap  <tab> :args<cr>
+nnoremap  <leader><tab> :args<cr>
