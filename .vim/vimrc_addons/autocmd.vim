@@ -62,5 +62,4 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab  "for makefiles, go with tabs
 autocmd FileType c    setlocal ts=8 sts=8 sw=8 noexpandtab
 autocmd FileType h    setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
-autocmd FileType cpp  setlocal ts=8 sts=8 sw=8 noexpandtab  "for h, go with tabs
 autocmd FileType text setlocal cursorline nolist colorcolumn=0
