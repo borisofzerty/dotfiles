@@ -81,7 +81,7 @@ alias ll='ls -lah'
 alias la='ls -A'
 alias l='ls -CF'
 alias ..='cd ..'
-alias ,,='echo -e "### ### ### ### ###\n### ### ### ### ###\n### ### ### ### ###"'
+# alias ,,='echo -e "### ### ### ### ###\n### ### ### ### ###\n### ### ### ### ###"'
 alias hgrep='history | grep'
 alias dfc='df -h | cowsay -bn'
 alias mm='~/scripts/manmaker.sh'
@@ -100,6 +100,9 @@ function ,, () {
         echo -n "#"
     done
     echo ""
+}
+function wc4 () {
+    dc -e "4 $(wc -c $1 | cut -d' ' -f1) * p"
 }
 
 export MANWIDTH=$(($(tput cols) - 3))
