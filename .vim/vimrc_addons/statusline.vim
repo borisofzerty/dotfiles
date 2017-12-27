@@ -1,5 +1,5 @@
 set laststatus=2        " statusline ALWAYS visible
-set statusline=%f\ %#Todo#%m%*\ [%{strlen(&fenc)?(&fenc.','):''}%{&ff}]%h%r%=c0x%B\ %c,%l/%L\ %{Hbar()}\ a%{argidx()+1}/%{argc()}\ %p%%
+set statusline=%f\ %#Todo#%m%*\ [%{strlen(&fenc)?(&fenc.','):''}%{&ff}]%h%r%=c0x%B\ %c,%l/%L\ %{Hbar()}\ a%{argidx()+1}\ b%{bufnr(\"%\")}\ w%{winnr()}\ t%{tabpagenr()}\ %p%%
 "set statusline=%f\ %#Todo#%m%*\ [%{strlen(&fenc)?(&fenc.','):''}%{&ff}]%h%r%=c0x%B\ %c,%l/%L\ %{Hbar()}\ w%{winnr()}\ b%{bufnr('%')}\ %p%%
 let statusl_original = &statusline
 nnoremap - :call <SID>Echobar(statusl_original)<cr>

@@ -1,5 +1,10 @@
 filetype on
 
+augroup prevw
+    autocmd WinEnter * if &previewwindow | setlocal cursorline | endif
+augroup END
+
+
 augroup filetype_ruby
     autocmd!
     autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab

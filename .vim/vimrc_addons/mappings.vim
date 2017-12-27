@@ -150,6 +150,6 @@ noremap <Leader>n :NERDTreeToggle<Esc>
 "imap <C-G> <Plug>snipMateShow
 "smap <C-G> <Plug>snipMateShow
 
-map <Leader>a <Plug>llArgList:argument<space>0
-map <Leader>b <Plug>llFullList:buffer<space>0
+map <Leader>a <Plug>llArgList:silent! argument<space>0
+map <Leader>b <Plug>llFullList:silent! buffer<space>0
 nnoremap  <leader><tab> :args<cr>

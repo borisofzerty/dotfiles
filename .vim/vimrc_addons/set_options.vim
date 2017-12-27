@@ -11,6 +11,7 @@ set splitbelow          " split in a logic way
 set splitright          " split in a logic way
 set foldmethod=indent
 set nofoldenable
+set nowrap
 
 "" Search "
 """""""""""
